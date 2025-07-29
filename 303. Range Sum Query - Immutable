@@ -1,0 +1,18 @@
+class NumArray {
+    private res:number[];
+    constructor(nums: number[]) {
+        this.res =[0];
+        let cur=0;
+
+        for(let i=0;i<nums.length;i++){
+            this.res.push(cur+=nums[i]);
+        }
+        
+        
+    }
+
+    sumRange(left: number, right: number): number {
+        let result= this.res[right+1]-this.res[left];
+        return result;
+    }
+}
