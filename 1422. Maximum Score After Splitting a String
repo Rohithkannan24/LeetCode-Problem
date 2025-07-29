@@ -1,0 +1,17 @@
+function maxScore(s: string): number {
+    let zeros = s.split('0').length - 1;
+    let ones = 0;
+    let max = 0;
+
+        for (let i = s.length - 1; i > 0; i--) {
+        if (s[i] === '0') {
+            zeros--;  
+        } else {
+            ones++;  
+        }
+        max = Math.max(max, zeros + ones);
+    }
+
+    return max;
+    
+};
