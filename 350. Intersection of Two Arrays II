@@ -1,0 +1,45 @@
+function intersect(nums1: number[], nums2: number[]): number[] {
+
+    function quickSort(arr: number[]): number[] {
+    if (arr.length <= 1){
+         return arr
+    }; 
+    const pivot = arr[Math.floor(arr.length/2)];
+    
+    const left = [];
+    const right = [];
+    const mid = [];
+    
+    for (const num of arr) {
+        if (num < pivot) {
+            left.push(num);
+        } else if (num > pivot) {
+            right.push(num);
+        } else {
+            mid.push(num);
+        }
+    }
+    
+    return [...quickSort(left), ...mid, ...quickSort(right)];
+    }  
+
+    let arr1=quickSort(nums1);
+    let arr2=quickSort(nums2);
+    let res=[];
+    let i = 0, j = 0;
+
+    while (i < arr1.length && j < arr2.length) {
+        if (arr1[i] === arr2[j]) {
+            res.push(arr1[i]);
+            i++;
+            j++;
+        } else if (arr1[i] < arr2[j]) {
+            i++;
+        } else {
+            j++;
+        }
+    }
+
+    return res;
+
+};
