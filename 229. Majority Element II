@@ -1,0 +1,32 @@
+function majorityElement(nums: number[]): number[] {
+    /*let res=new Map<number,number>();
+    for(let i=0; i<nums.length;i++){
+        for(let j=0; j<nums.length; j++){
+            if(nums[i]===nums[j]){
+                res.set(nums[i],1);
+            }
+        }
+    }
+    let n = nums.length;
+    if(res>(Math.floor(n/3))){
+        return res;
+    }*/
+    const res = new Map<number, number>();
+    const result: number[] = [];
+    const value = Math.floor(nums.length / 3);
+
+    
+    for (const num of nums) {
+        res.set(num, (res.get(num)||0) + 1);
+    }
+
+    
+    res.forEach((count, num) => {
+        if (count > value) {
+            result.push(num);
+        }
+    });
+
+    return result;
+    
+};
