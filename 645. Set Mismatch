@@ -1,0 +1,31 @@
+function findErrorNums(nums: number[]): number[] {
+    /*let l=0;
+    let r=1;
+    while(r<nums.length){
+        if(nums[l]===nums[r]){
+            return [nums[l],nums[r]+1];
+        }
+        l++;
+        r++;
+
+    }*/
+    let duplicate = -1;
+    let missing = -1;
+
+    for (let i = 1; i <= nums.length; i++) {
+        let count = 0;
+        for (let j = 0; j < nums.length; j++) {
+            if (nums[j] === i) {
+                count++;
+            }
+        }
+        
+        if (count === 2) {
+            duplicate = i;
+        } else if (count === 0) {
+            missing = i;
+        }
+    }
+
+    return [duplicate, missing];
+};
