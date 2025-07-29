@@ -1,0 +1,20 @@
+function isPerfectSquare(num: number): boolean {
+    let l = 1;
+    let r = num;
+
+    while (l <= r) {
+        const mid = Math.floor((l + r) / 2);
+        const square = mid * mid;
+
+        if (square === num) {
+            return true;
+        } else if (square > num) {
+            r = mid - 1;
+        } else {
+            l = mid + 1;
+        }
+    }
+
+    return false;
+    
+};
