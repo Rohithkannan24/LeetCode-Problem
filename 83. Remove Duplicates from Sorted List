@@ -1,0 +1,41 @@
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function deleteDuplicates(head: ListNode | null): ListNode | null {
+    /*let res = head; 
+    while (res !== null && res.next !== null) {
+        if (res.val === res.next.val) {
+            res.next = res.next.next;
+        } else {
+            
+            res = res.next;
+        }
+    }
+
+    return head;*/
+
+    const res = new ListNode(); 
+    let tail = res;            
+    let point = head;          
+
+    while (point !== null) {
+        while (point.next !== null && point.val === point.next.val) {
+            point = point.next;
+        }
+        
+        tail.next = new ListNode(point.val);
+        tail = tail.next;
+        point = point.next;
+    }
+
+    return res.next;
+};
