@@ -1,0 +1,34 @@
+function isAnagram(s: string, t: string): boolean {
+   function quickSort(str) {
+        if (str.length <= 1){
+         return str;
+        }     
+    
+    const pivot = str[Math.floor(str.length / 2)];
+    const l = [];
+    const r = [];
+    const mid = [];
+    
+    for (const char of str) {
+        if (char < pivot){
+           l.push(char);
+        } 
+        else if (char > pivot) { 
+            r.push(char);
+        }    
+        else {
+            mid.push(char);
+        }
+    }
+    
+    return quickSort(l.join('')) + mid.join('') + quickSort(r.join(''));
+    };
+
+    let oneS = quickSort(s);
+    let secondS = quickSort(t);
+    if(oneS===secondS){
+        return true;
+    }
+    return false;
+    
+};
