@@ -1,0 +1,43 @@
+function reverseWords(s: string): string {
+    
+    let words = [];
+    let currentWord = '';
+    let i = 0;
+    const n = s.length;
+    
+    
+    while (i < n && s[i] === ' ') {
+        i++;
+    }
+    
+    
+    while (i < n) {
+        if (s[i] !== ' ') {
+            currentWord += s[i];
+        } else {
+            if (currentWord.length > 0) {
+                words.push(currentWord);
+                currentWord = '';
+            }
+            
+            while (i < n && s[i] === ' ') {
+                i++;
+            }
+            continue;
+        }
+        i++;
+    }
+    if (currentWord.length > 0) {
+        words.push(currentWord);
+    }
+    let result = '';
+    for (let j = words.length - 1; j >= 0; j--) {
+        if (result.length > 0) {
+            result += ' ';
+        }
+        result += words[j];
+    }
+    
+    return result;
+
+};
