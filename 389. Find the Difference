@@ -1,0 +1,31 @@
+function findTheDifference(s: string, t: string): string {
+    let svalue= 0;
+    let  tvalue= 0;
+    for (const char of s) {
+        svalue += char.charCodeAt(0);
+    }
+    for (const char of t) {
+        tvalue += char.charCodeAt(0);
+    }
+    
+    let res=String.fromCharCode(tvalue - svalue);
+    return res;
+    
+    
+    
+    
+    
+    /*let res = 0;
+
+    for (let char of s) {
+        res = res ^ char.charCodeAt(0);
+    }
+
+    for (let char of t) {
+        res = res ^ char.charCodeAt(0);
+    }
+
+    return String.fromCharCode(res);*/
+
+    
+};
