@@ -1,0 +1,30 @@
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     val: number
+ *     next: ListNode | null
+ *     constructor(val?: number, next?: ListNode | null) {
+ *         this.val = (val===undefined ? 0 : val)
+ *         this.next = (next===undefined ? null : next)
+ *     }
+ * }
+ */
+
+function swapPairs(head: ListNode | null): ListNode | null {
+    let res= new ListNode(0,head);
+    let prev=res;
+
+    while(head!==null && head.next!==null){
+        let l=head;
+        let r = head.next;
+
+        prev.next=r;
+        l.next=r.next;
+        r.next=l;
+
+        prev=l;
+        head=l.next;
+    }
+    return res.next;
+    
+};
