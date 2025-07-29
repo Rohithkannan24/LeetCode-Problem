@@ -1,0 +1,7 @@
+function getSum(a: number, b: number): number {
+    let res = 0;
+    res+=a;
+    res+=b;
+    return res;
+    
+};
