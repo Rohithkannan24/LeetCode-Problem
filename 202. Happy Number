@@ -1,0 +1,23 @@
+function isHappy(n: number): boolean {
+    let set = new Set<number>();
+    function getNumber(value:number):number{
+        let out:number =0;
+        while(value>0){
+            let k=value %10;
+            out += k*k;
+            value = Math.floor(value/10);
+        }
+        return out;
+    };
+
+    while(!set.has(n)){
+        set.add(n);
+        n = getNumber(n);
+       if(n === 1){
+           return true;
+        }
+    }
+    return false;
+
+    
+};
