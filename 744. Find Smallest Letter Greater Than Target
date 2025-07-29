@@ -1,0 +1,19 @@
+function nextGreatestLetter(letters: string[], target: string): string {
+    let l=0;
+    let r= letters.length-1;
+    
+    if(target>=letters[r]){
+        return letters[0];
+    }
+    while(l<=r){
+        let m=(l+r);
+        if(letters[m]<=target){
+            l=m+1;
+        }
+        else{
+            r=m-1;
+        }
+    }
+    return letters[l];
+    
+};
