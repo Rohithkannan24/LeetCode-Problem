@@ -1,0 +1,27 @@
+unction strStr(haystack: string, needle: string): number {
+    let l = haystack.length;
+    let r = needle.length;
+    
+    if (r === 0) {
+        return 0;
+    }
+    
+    let i = 0;
+    while (i < l) {
+        let needleI = 0;
+        let j = i;
+        
+        while (j < l && needleI < r && haystack[j] === needle[needleI]) {
+            j++;
+            needleI++;
+        }
+        
+        if (needleI === r) {
+            return i;
+        }
+        
+        i++;
+    }
+    
+    return -1;
+};
