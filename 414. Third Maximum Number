@@ -1,0 +1,34 @@
+function thirdMax(nums: number[]): number {
+    function bubbleSort(value:number[]):number[]{
+    let n = value.length;
+    for (let i = 0; i < n - 1; i++) {
+        for (let j = 0; j < n - i - 1; j++) {
+             if (value[j] > value[j + 1]) {
+                let temp = value[j];
+                value[j] = value[j + 1];
+                 value[j + 1] = temp;
+            }  
+        }
+    }
+     return value;
+    }
+    
+    
+    let maxValue:number[]=bubbleSort(nums);
+    let n=maxValue.length;
+    let count = 1;
+    let prev = maxValue[n-1];
+    
+    for (let i = n-2; i >=0 ; i--) {
+        if (maxValue[i] !== prev) {
+            count++;
+            prev = maxValue[i];
+        }
+        if (count === 3) {
+            return maxValue[i];
+        }
+    }
+    return maxValue[n-1];
+
+    
+};
